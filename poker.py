@@ -59,6 +59,7 @@ def nochipround():
     print("not done yet")
 
 def virtualchipround():
+    x = 0
     pot = 0
     leftblind = dealer + 1
     rightblind = dealer + 2
@@ -78,6 +79,9 @@ def virtualchipround():
         pot += ante
         i+=1
     chipcount(pot)
+    print("Please hand the computer to " + players[leftblind])
+    print("Press enter when " + players[leftblind] + " has the computer")
+    x = input("")
     
 
 
