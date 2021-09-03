@@ -1,8 +1,16 @@
 import time
 import os
+import random
 a = 0
-
+spades = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+hearts = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+diamonds = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+clubs = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 os.system("cls")
+
+def card():
+    testing = random.randrange(0,3)
+    print(testing)
 
 def clear():
     os.system("cls")
@@ -82,6 +90,8 @@ def virtualchipround():
     print("Please hand the computer to " + players[leftblind])
     print("Press enter when " + players[leftblind] + " has the computer")
     x = input("")
+    card()
+    
     
 
 
