@@ -1,7 +1,11 @@
 import time
 import os
 import random
+import sys
 a = 0
+d = 0
+suit = 0
+suitname=0
 spades = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 hearts = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 diamonds = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
@@ -9,8 +13,26 @@ clubs = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 os.system("cls")
 
 def card():
-    testing = random.randrange(0,3)
-    print(testing)
+    l = random.randrange(1,5)
+    if l == 1:
+        suit = spades
+        suitname = "spades"
+    elif l == 2:
+        suit = hearts
+        suitname = "hearts"
+    elif l == 3:
+        suit = diamonds
+        suitname = "diamonds"
+    elif l == 4:
+        suit = clubs
+        suitname = "clubs"
+    else:
+        sys.exit("ERROR")
+    l = random.choice(suit)
+    d = str(suit[int(l)]) + " of " + suitname
+    del suit[int(l)]
+    return d
+    
 
 def clear():
     os.system("cls")
@@ -87,11 +109,18 @@ def virtualchipround():
         pot += ante
         i+=1
     chipcount(pot)
+    print("")
     print("Please hand the computer to " + players[leftblind])
     print("Press enter when " + players[leftblind] + " has the computer")
     x = input("")
-    card()
-    
+    clear()
+    print("Your hole cards are")
+    print(card())
+    print(card())
+    time.sleep(2)
+    print("When you are done reviewing your hole cards, press enter")
+    x = input("")
+    print("More code coming soon")
     
 
 
