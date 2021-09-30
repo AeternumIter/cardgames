@@ -29,8 +29,9 @@ def card():
     else:
         sys.exit("ERROR")
     l = random.choice(suit)
-    d = str(suit[int(l)]) + " of " + suitname
-    del suit[int(l)]
+    position = suit.index(l)
+    d = str(suit[position]) + " of " + suitname
+    del suit[int(position)]
     return d
     
 
@@ -110,17 +111,26 @@ def virtualchipround():
         i+=1
     chipcount(pot)
     print("")
-    print("Please hand the computer to " + players[leftblind])
-    print("Press enter when " + players[leftblind] + " has the computer")
-    x = input("")
-    clear()
-    print("Your hole cards are")
-    print(card())
-    print(card())
-    time.sleep(2)
-    print("When you are done reviewing your hole cards, press enter")
-    x = input("")
-    print("More code coming soon")
+    
+    i = 0
+    d = leftblind
+    while i < PlayerNum:
+        print("Please hand the computer to " + players[d])
+        print("Press enter when " + players[d] + " has the computer")
+        x = input("")
+        clear()
+        print("Your hole cards are")
+        print(card())
+        print(card())
+        time.sleep(2)
+        print("When you are done reviewing your hole cards, press enter")
+        x = input("")
+        clear()
+        i+=1
+        if d < PlayerNum:
+            d+=1
+        else:
+            d = dealer
     
 
 
