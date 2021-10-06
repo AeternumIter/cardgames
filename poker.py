@@ -4,13 +4,19 @@ import random
 import sys
 a = 0
 d = 0
+k = 0
 suit = 0
 suitname=0
+callamount = 0
+betnum = 0
 spades = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 hearts = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 diamonds = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 clubs = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 os.system("cls")
+
+def bet():
+    playerchips[i] = int((playerchips.get(i))) - int(betnum)
 
 def card():
     l = random.randrange(1,5)
@@ -128,8 +134,24 @@ def virtualchipround():
         clear()
         i+=1
         d+=1
-        
-    
+    print("Pre-Flop Round starts now")
+    print("")
+    i = 0
+    callamount = 0
+    while i < PlayerNum:
+        if callamount != 0:
+            print("not yet")
+        elif callamount == 0:
+            print(players[i] + ", what are you going to do? (c)heck or (b)et")
+            bet = input ("")
+            if bet == "c":
+                i+=1
+            elif bet == "b":
+                print("What do you want to bet?")
+                betnum = input("")
+                bet()
+                chipcount(pot)
+
 
 
 
