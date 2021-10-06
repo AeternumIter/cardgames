@@ -113,7 +113,7 @@ def virtualchipround():
     print("")
     
     i = 0
-    d = leftblind
+    d = dealer
     while i < PlayerNum:
         print("Please hand the computer to " + players[d])
         print("Press enter when " + players[d] + " has the computer")
@@ -127,10 +127,8 @@ def virtualchipround():
         x = input("")
         clear()
         i+=1
-        if d < PlayerNum:
-            d+=1
-        else:
-            d = dealer
+        d+=1
+        
     
 
 
