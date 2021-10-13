@@ -15,8 +15,8 @@ diamonds = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 clubs = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 os.system("cls")
 
-def bet():
-    playerchips[i] = int((playerchips.get(i))) - int(betnum)
+def betsss():
+    playerchips[i] = playerchips[i] - betnum
 
 def card():
     l = random.randrange(1,5)
@@ -148,9 +148,10 @@ def virtualchipround():
                 i+=1
             elif bet == "b":
                 print("What do you want to bet?")
-                betnum = input("")
-                bet()
+                betnum = int(input(""))
+                betsss()
                 chipcount(pot)
+        clear()
 
 
 
