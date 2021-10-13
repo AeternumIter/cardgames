@@ -15,8 +15,8 @@ diamonds = ["A","2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 clubs = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 os.system("cls")
 
-def betsss():
-    playerchips[i] = playerchips[i] - betnum
+def betsss(num, playr):
+    playerchips[playr] = playerchips[playr] - num
 
 def card():
     l = random.randrange(1,5)
@@ -93,7 +93,7 @@ dealer = 0
 pot = 0
 
 def nochipround():
-    print("not done yet")
+    sys.exit("This part is not done!")
 
 def virtualchipround():
     x = 0
@@ -138,19 +138,31 @@ def virtualchipround():
     print("")
     i = 0
     callamount = 0
-    while i < PlayerNum:
+    roundplayers = {}
+    for i in range(PlayerNum):
+        roundplayers[players[i]] = False
+    i = 0
+    while False in roundplayers:
+        if i > PlayerNum:
+            i = 0
         if callamount != 0:
-            print("not yet")
+            print("The current call amount on the table is " + callamount)
+            print(players[i] + ", do you want to (c)all (f)old or (r)aise")
         elif callamount == 0:
             print(players[i] + ", what are you going to do? (c)heck or (b)et")
             bet = input ("")
             if bet == "c":
+                roundplayers[i] = True
                 i+=1
             elif bet == "b":
+                print("These are the current amounts of each player:")
+                chipcount(pot)
                 print("What do you want to bet?")
                 betnum = int(input(""))
-                betsss()
-                chipcount(pot)
+                betsss(betnum, i)
+                roundplayers[i] = True
+                i+=1
+                callamount = betnum
         clear()
 
 
