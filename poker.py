@@ -138,15 +138,16 @@ def virtualchipround():
     print("")
     i = 0
     callamount = 0
-    roundplayers = {}
-    for i in range(PlayerNum):
-        roundplayers[players[i]] = False
+    roundplayers = []
+    while i < PlayerNum:
+        roundplayers.append(False)
+        i+=1
     i = 0
     while False in roundplayers:
         if i > PlayerNum:
             i = 0
         if callamount != 0:
-            print("The current call amount on the table is " + callamount)
+            print("The current call amount on the table is " + int(callamount))
             print(players[i] + ", do you want to (c)all (f)old or (r)aise")
         elif callamount == 0:
             print(players[i] + ", what are you going to do? (c)heck or (b)et")
