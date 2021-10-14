@@ -6,3 +6,5 @@ The current card games:
 poker (Texas Hold'em)
 
 Put any suggestions wherever u like. Contributions would be greatly appreciated
+
+# I am be fun :)
