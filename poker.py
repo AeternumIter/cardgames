@@ -5,6 +5,7 @@ import sys
 a = 0
 d = 0
 k = 0
+PlayerNum = 0
 suit = 0
 suitname=0
 callamount = 0
@@ -143,12 +144,27 @@ def virtualchipround():
         roundplayers.append(False)
         i+=1
     i = 0
+    def resetplayers():
+        s = 0
+        while s < PlayerNum:
+            roundplayers[s] = False
     while False in roundplayers:
         if i > PlayerNum:
             i = 0
         if callamount != 0:
-            print("The current call amount on the table is " + int(callamount))
-            print(players[i] + ", do you want to (c)all (f)old or (r)aise")
+            print("The current call amount on the table is " + str(callamount))
+            print(players[i] + ", do you want to (c)all (f)old or (r)aise?")
+            bet = input()
+            if bet == "c":
+                chipcount(pot)
+                print("press enter to continue")
+                wait = input()
+                betsss(callamount, i)
+                roundplayers[i] = True
+                i+=1
+            elif bet == "f":
+                players.pop[i]
+                PlayerNum = PlayerNum - 1
         elif callamount == 0:
             print(players[i] + ", what are you going to do? (c)heck or (b)et")
             bet = input ("")
@@ -161,6 +177,7 @@ def virtualchipround():
                 print("What do you want to bet?")
                 betnum = int(input(""))
                 betsss(betnum, i)
+                resetplayers()
                 roundplayers[i] = True
                 i+=1
                 callamount = betnum
